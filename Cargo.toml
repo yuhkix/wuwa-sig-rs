@@ -1,0 +1,43 @@
+[package]
+name = "wuwa-sig-rs"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+interceptor-rs = { git = "https://git.xeondev.com/ReversedRoomsMisc/interceptor-rs.git" }
+ilhook = "2.1.1"
+windows = { version = "0.61.1", features = [
+    "Win32_Foundation",
+    "Win32_System_LibraryLoader",
+    "Win32_System_SystemServices",
+    "Win32_System_Console",
+] }
+
+[dependencies.winapi]
+version = "0.3.9"
+features = [
+    "minwindef",
+    "ntdef",
+    "consoleapi",
+    "errhandlingapi",
+    "libloaderapi",
+    "memoryapi",
+    "processthreadsapi",
+    "psapi",
+    "winnt"
+]
+
+# [dependencies.windows]
+# version = "0.61.3"
+# features = [
+#    "Win32_Foundation",
+#    "Win32_System_Console",
+#    "Win32_System_Diagnostics_Debug",
+#    "Win32_System_Diagnostics_ToolHelp",
+#    "Win32_System_Memory",
+#    "Win32_System_Threading",
+#    "Win32_Security"
+# ]

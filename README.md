@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](https://www.microsoft.com/windows)
 [![Game](https://img.shields.io/badge/Game-Wuthering%20Waves-purple.svg)](https://wutheringwaves.kurogames.com/)
+[![Reversed Rooms](https://img.shields.io/badge/Discord-Reversed%20Rooms-pink.svg)](https://discord.gg/D3SXfNGBhq)
 
 A specialized Rust-based DLL injection library designed to bypass signature verification checks in the Wuthering Waves game client. This project provides advanced memory pattern scanning and function hooking capabilities for legitimate game modification research and development purposes.
 

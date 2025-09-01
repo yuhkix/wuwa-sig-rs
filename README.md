@@ -83,18 +83,6 @@ This library is specifically designed to work with the Wuthering Waves game clie
 - **Process Isolation**: Always ensure proper game process boundaries
 - **Responsible Use**: Intended for development and research purposes only
 
-## 🤝 Contributing
-
-We welcome contributions from the Wuthering Waves modding community! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-### Development Setup
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/signature-bypass`
-3. Commit your changes: `git commit -m 'feat: improve signature detection'`
-4. Push to the branch: `git push origin feature/signature-bypass`
-5. Open a Pull Request
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -102,12 +90,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## ⚠️ Disclaimer
 
 This software is provided for educational and legitimate game modification research purposes only. Users are responsible for ensuring compliance with applicable laws, game Terms of Service, and regulations. The authors are not liable for any misuse of this software or violations of game policies.
-
-## 🆘 Support
-
-- **Issues**: [GitHub Issues](https://github.com/yuhkix/wuwa-sig-rs/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yuhkix/wuwa-sig-rs/discussions)
-- **Documentation**: [Wiki](https://github.com/yuhkix/wuwa-sig-rs/wiki)
 
 ## 🙏 Acknowledgments
 

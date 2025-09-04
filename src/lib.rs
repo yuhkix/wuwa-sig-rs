@@ -28,7 +28,6 @@ const TARGET_PATTERN: [u8; 14] = [
     0x55, 0x53, 0x56, 0x41, 0x54, 0x41, 0x57, 0x48, 0x89, 0xE5, 0x48, 0x83, 0xEC, 0x60,
 ];
 const PATTERN_MASK: &str = "xxxxxxxxxxxxxx";
-const POLL_INTERVAL_MS: u64 = 1;
 
 // main hook logic
 unsafe extern "win64" fn pak_file_check_replacement(
@@ -134,7 +133,7 @@ fn wait_for_ace_init(target_func: *mut u8, expected_preamble: u64) -> Result<()>
             Logger::success("ACE Initialization finished");
             return Ok(());
         }
-        thread::sleep(Duration::from_millis(POLL_INTERVAL_MS));
+        thread::sleep(Duration::from_millis(1));
     }
 }
 

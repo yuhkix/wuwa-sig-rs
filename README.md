@@ -1,79 +1,93 @@
-# wuwa-sig-rs
+# WuWa Signature Scanner and Hook Library
 
 [![Rust](https://img.shields.io/badge/Rust-1.75+-orange.svg)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](https://www.microsoft.com/windows)
 [![Game](https://img.shields.io/badge/Game-Wuthering%20Waves-purple.svg)](https://wutheringwaves.kurogames.com/)
-[![Reversed Rooms](https://img.shields.io/badge/Discord-Reversed%20Rooms-pink.svg)](https://discord.gg/D3SXfNGBhq)
+[![Reversed Rooms](https://img.shields.io/badge/Discord-Reversed%20Rooms-pink.svg)](https://discord.gg/reversedrooms)
 
-A specialized Rust-based DLL injection library designed to bypass signature verification checks in the Wuthering Waves game client. This project provides advanced memory pattern scanning and function hooking capabilities for legitimate game modification research and development purposes.
-
-## 🎮 Purpose
-
-**wuwa-sig-rs** is specifically designed to:
-- Bypass the signature verification function in Wuthering Waves
-- Enable legitimate game modification development and testing
-- Provide a foundation for game enhancement research
-- Support community-driven game improvement projects
+A high-performance, thread-safe Rust library for memory scanning and hooking Windows applications, specifically designed for bypassing PAK file verification in WuWa (Wuthering Waves).
 
 ## 🚀 Features
 
-- **Signature Bypass**: Advanced pattern scanning to locate and hook signature verification functions
-- **Memory Pattern Matching**: Sophisticated byte pattern detection with customizable masks
-- **Function Interception**: Seamless function replacement using the Interceptor-rs framework
-- **Game Client Integration**: Specifically designed for Wuthering Waves client architecture
-- **Console Debugging**: Rich, colorized console output for development and monitoring
-- **Performance Optimized**: Written in Rust for maximum performance and memory safety
+- **High-Performance Memory Scanning**: Optimized pattern matching algorithms with caching
+- **Thread-Safe Hook Management**: State tracking and safe hook application/removal
+- **Structured Logging**: Configurable log levels with colored output and timestamps
+- **Safe Memory Access**: Bounds checking and error handling for all unsafe operations
+- **Performance Optimized**: Minimal allocations, efficient algorithms, and caching
+- **Modular Architecture**: Clean separation of concerns for easy maintenance
+- **Comprehensive Documentation**: Detailed API documentation and examples
 
-## 🛠️ Prerequisites
+## 🏗️ Architecture
+
+The library is organized into several focused modules:
+
+- **`config`**: Configuration management with validation and defaults
+- **`constants`**: Application constants and magic numbers
+- **`error`**: Comprehensive error handling with thiserror integration
+- **`hooks`**: Thread-safe hook management with state tracking
+- **`logger`**: High-performance structured logging system
+- **`memory`**: Optimized memory scanning and pattern matching
+- **`safety`**: Safe abstractions for unsafe operations
+
+## 📦 Installation
+
+### Prerequisites
 
 - **Windows 10/11** (x64)
 - **Rust 1.75+** with Cargo
 - **Visual Studio Build Tools** (for Windows API bindings)
 - **Administrator privileges** (for DLL injection operations)
-- **Wuthering Waves game client** (for testing and development)
 
-## 📦 Installation
-
-### 1. Clone the Repository
+### Building
 
 ```bash
+# Clone the repository
 git clone https://github.com/yuhkix/wuwa-sig-rs.git
 cd wuwa-sig-rs
-```
 
-### 2. Install Dependencies
+# Build in debug mode
+cargo build
 
-```bash
+# Build in release mode
 cargo build --release
 ```
 
-### 3. Build the DLL
+The compiled DLL will be available at `target/release/wuwa_sig_rs.dll`.
+
+## 🛡️ Safety
+
+This library uses unsafe code for low-level memory operations and Windows API calls. All unsafe operations are wrapped in safe abstractions with:
+
+- **Bounds checking** for memory access
+- **Null pointer validation** before dereferencing
+- **Panic recovery** for critical operations
+- **Comprehensive error handling** with detailed error messages
+
+## ⚡ Performance
+
+The library is optimized for performance with:
+
+- **Cached module scanning** to avoid repeated system calls
+- **Optimized pattern matching** with different algorithms for different pattern types
+- **Efficient memory access patterns** with minimal copying
+- **Thread-safe operations** without unnecessary locking
+- **Minimal allocations** in hot paths
+
+## 🧪 Testing
+
+Run the test suite:
 
 ```bash
-cargo build --release --target x86_64-pc-windows-msvc
+# Run all tests
+cargo test
+
+# Run tests with output
+cargo test -- --nocapture
+
+# Run specific test module
+cargo test memory::tests
 ```
-
-The compiled DLL will be available at `target/x86_64-pc-windows-msvc/release/wuwa_sig_rs.dll`.
-
-## 🏗️ Architecture
-
-The project is built with a modular architecture specifically designed for game signature bypass:
-
-- **Signature Scanner**: Locates verification functions in game memory
-- **Bypass Engine**: Manages function interception and replacement
-- **Game Integration**: Handles Wuthering Waves client-specific logic
-- **Console Interface**: Provides development feedback and debugging information
-- **Memory Utilities**: Offers low-level memory manipulation for game processes
-
-## 🎯 Wuthering Waves Integration
-
-This library is specifically designed to work with the Wuthering Waves game client:
-
-- **Target Process**: `Client-Win64-Shipping.exe`
-- **Signature Function**: `f_pak_file_check` verification routine
-- **Memory Layout**: Optimized for the game's memory structure
-- **Hook Timing**: Waits for proper game initialization before applying bypasses
 
 ## 🔒 Security & Legal Considerations
 
@@ -93,6 +107,7 @@ This software is provided for educational and legitimate game modification resea
 
 ## 🙏 Acknowledgments
 
+- T[Ranny](https://git.xeondev.com/Ranny) - Fixing 🧑‍🦼 and updated to work for 2.7
 - [Interceptor-rs](https://git.xeondev.com/ReversedRoomsMisc/interceptor-rs) - Function hooking framework
 - [ILHook](https://github.com/regomne/ilhook-rs) - Low-level hooking utilities
 - [Windows-rs](https://github.com/microsoft/windows-rs) - Windows API bindings

@@ -1,4 +1,4 @@
-# WuWa Signature Scanner and Hook Library
+# wuwa-sig-rs
 
 [![Rust](https://img.shields.io/badge/Rust-1.75+-orange.svg)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)

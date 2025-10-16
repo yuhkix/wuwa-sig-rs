@@ -4,36 +4,16 @@ pub mod constants {
     pub const TARGET_MODULE: &str = "Client-Win64-Shipping.exe";
 
     /// Byte pattern to search for in memory
-    pub const TARGET_PATTERN: [u8; 7] = [
-        0x49, 0x81, 0xC3, 0x9A, 0x0B, 0xFB, 0xFF, // substract 0x45 to get offset
-    ];
+    pub const TARGET_PATTERN: [u8; 7] = [0x49, 0x81, 0xC3, 0x9A, 0x0B, 0xFB, 0xFF];
 
     /// Pattern mask for the target pattern (x = exact match, ? = wildcard)
     pub const PATTERN_MASK: &str = "xxxxxxx";
-
-    /// Maximum number of modules to scan (buffer size)
-    pub const MAX_MODULES: usize = 1024;
-
-    /// Maximum module name length
-    pub const MAX_MODULE_NAME_LEN: usize = 256;
-
-    /// Default maximum scan size in bytes (100MB)
-    pub const DEFAULT_MAX_SCAN_SIZE: usize = 100 * 1024 * 1024;
-
-    /// Default ACE initialization timeout in milliseconds (5 seconds)
-    pub const DEFAULT_ACE_INIT_TIMEOUT_MS: u64 = 5000;
-
-    /// Maximum sleep duration for the main loop (effectively infinite)
-    pub const MAX_SLEEP_DURATION_SECS: u64 = u64::MAX;
 
     /// DLL process attach reason code
     pub const DLL_PROCESS_ATTACH: u32 = 1;
 
     /// Success return value for bypass function
     pub const BYPASS_SUCCESS: usize = 1;
-
-    /// Thread creation flags
-    pub const THREAD_CREATE_FLAGS: u32 = 0;
 
     /// Memory access constants
     pub mod memory {
@@ -42,9 +22,6 @@ pub mod constants {
 
         /// Offset for parent pointer in the structure
         pub const PARENT_POINTER_OFFSET: usize = 8;
-
-        /// Size of a pointer on x64 systems
-        pub const POINTER_SIZE: usize = 8;
     }
 
     /// Logging constants

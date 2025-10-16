@@ -330,7 +330,7 @@ unsafe fn apply_bypass_hook() -> Result<()> {
     // infinite loop to maintain the hook
     Logger::info("Entering maintenance loop...");
     loop {
-        thread::sleep(Duration::from_secs(MAX_SLEEP_DURATION_SECS));
+        thread::sleep(Duration::from_secs(u64::MAX));
     }
 }
 

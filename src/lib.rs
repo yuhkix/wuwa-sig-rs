@@ -197,10 +197,10 @@ unsafe fn apply_bypass_hook() -> Result<()> {
 
     Logger::info("Creating configuration...");
     Logger::info(&format!("Target module: {}", TARGET_MODULE));
-    Logger::info(&format!("Pattern: {:02X?}", TEST_PATTERN));
-    Logger::info(&format!("Mask: {}", TEST_PATTERN_MASK));
+    Logger::info(&format!("Pattern: {:02X?}", TARGET_PATTERN));
+    Logger::info(&format!("Mask: {}", PATTERN_MASK));
 
-    let config = Config::new(TARGET_MODULE, &TEST_PATTERN, TEST_PATTERN_MASK);
+    let config = Config::new(TARGET_MODULE, &TARGET_PATTERN, PATTERN_MASK);
     Logger::info("Configuration created successfully");
 
     Logger::info("Validating configuration...");
@@ -347,7 +347,7 @@ fn wait_for_ace_init(target_func: *mut u8, expected_preamble: u64) -> Result<()>
             return Ok(());
         }
 
-        thread::sleep(Duration::from_millis(ACE_CHECK_INTERVAL_MS));
+        thread::sleep(Duration::from_millis(1));
     }
 }
 

@@ -31,7 +31,7 @@ impl Default for LoggerConfig {
             min_level: LogLevel::Info,
             show_timestamps: false,
             show_thread_ids: false,
-            colored_output: true,
+            colored_output: false,
         }
     }
 }

@@ -4,17 +4,12 @@ pub mod constants {
     pub const TARGET_MODULE: &str = "Client-Win64-Shipping.exe";
 
     /// Byte pattern to search for in memory
-    pub const TARGET_PATTERN: [u8; 14] = [
-        0x55, 0x53, 0x56, 0x41, 0x54, 0x41, 0x57, 0x48, 0x89, 0xE5, 0x48, 0x83, 0xEC, 0x60,
-    ];
-
-    pub const TEST_PATTERN: [u8; 7] = [
+    pub const TARGET_PATTERN: [u8; 7] = [
         0x49, 0x81, 0xC3, 0x9A, 0x0B, 0xFB, 0xFF, // substract 0x45 to get offset
     ];
 
     /// Pattern mask for the target pattern (x = exact match, ? = wildcard)
-    pub const PATTERN_MASK: &str = "xxxxxxxxxxxxxx";
-    pub const TEST_PATTERN_MASK: &str = "xxxxxxx";
+    pub const PATTERN_MASK: &str = "xxxxxxx";
 
     /// Maximum number of modules to scan (buffer size)
     pub const MAX_MODULES: usize = 1024;
@@ -27,9 +22,6 @@ pub mod constants {
 
     /// Default ACE initialization timeout in milliseconds (5 seconds)
     pub const DEFAULT_ACE_INIT_TIMEOUT_MS: u64 = 5000;
-
-    /// Sleep interval for ACE initialization check in milliseconds
-    pub const ACE_CHECK_INTERVAL_MS: u64 = 1;
 
     /// Maximum sleep duration for the main loop (effectively infinite)
     pub const MAX_SLEEP_DURATION_SECS: u64 = u64::MAX;
